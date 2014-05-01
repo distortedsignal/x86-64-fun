@@ -1,0 +1,13 @@
+#!/bin/bash
+
+INPUT_FILE=$1
+# Assemble and link the file provided in the first argument.
+# Assemble the file.
+as $INPUT_FILE -o output.o
+
+ld $(for O in 1 i begin; do gcc -print-file-name=crt$O.o; done) output.o -lc $(for O in end n; do gcc -print-file-name=crt$O.o; done) -o output -I /lib64/ld-linux-x86-64.so.2
+
+# For the audit chain, move the object file and the executable to the directory where the source is.
+FILE_PATH=$(dirname $1)/
+mv output.o $FILE_PATH
+mv output $FILE_PATH

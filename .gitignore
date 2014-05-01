@@ -1,0 +1,5 @@
+# Ignore all object files.
+*.o
+
+# Ignore anything with the word output in the file name. It was a generated file.
+*output*
