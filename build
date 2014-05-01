@@ -5,6 +5,7 @@ INPUT_FILE=$1
 # Assemble the file.
 as $INPUT_FILE -o output.o
 
+# Thanks for this go out to reddit user /u/Rhomboid here: http://www.reddit.com/r/programming/comments/24gpqp/lets_write_some_x8664/ch70gt1
 ld $(for O in 1 i begin; do gcc -print-file-name=crt$O.o; done) output.o -lc $(for O in end n; do gcc -print-file-name=crt$O.o; done) -o output -I /lib64/ld-linux-x86-64.so.2
 
 # For the audit chain, move the object file and the executable to the directory where the source is.
